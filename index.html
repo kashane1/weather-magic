@@ -4,7 +4,7 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Weather Magic</title>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
         <link rel="stylesheet" href="./assets/css/jass.css" />
         <link rel="stylesheet" href="./assets/css/style.css" />
     </head>
@@ -15,25 +15,29 @@
         </div>
 
         <div class="display-flex">
-            <div class="col-3">
-                <div class="m-2">
+            <div class="col-2">
+                <div class="m-1">
                     <h2>Search for a City</h2>
-                    <input type="text" class="form-input" placeholder="City and/or Zipcode" id="search-input">
-                    <button type="submit" class="btn btn-primary" id="search-submit">Search</button>
+                    <input type="text" class="form-control" placeholder="City and/or Zipcode" id="searchInput">
+                    <button type="submit" class="btn btn-primary" id="searchSubmit">Search</button>
                 </div>
 
-                <div class="m-2" id="past-searches">//past searches
+                <div class="m-1" id="pastSearches">//past searches
                     
                 </div>
             </div>
 
-            <div class="col-9 display-inline">
-                <div class="m-2" id="search-result">//current search result
-                    
+            <div class="col-10 display-flex">
+                <div class="container display-flex m-1 p-1">
+                    <div class="display-inline-block" id="searchResult">
+
+                    </div>
                 </div>
 
-                <div class="m-2" id="search-forcast">//5 day forcast
-                    
+                <div class="container display-flex m-1">
+                    <div class="display-inline-block" id="searchForcast">
+
+                    </div>
                 </div>
             </div>
         </div>
