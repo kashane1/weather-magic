@@ -4,7 +4,7 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Weather Magic</title>
-        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <link rel="stylesheet" href="./assets/css/jass.css" />
         <link rel="stylesheet" href="./assets/css/style.css" />
     </head>
@@ -14,22 +14,28 @@
             <h1 class="px-1 text-center bg-link text-white">Weather Dashboard</h1>
         </div>
 
-        <div class="col-3">//search input
-            <h2>Search for a City</h2>
-            <div class="form-input"></div>
-            <button type="submit" class="btn btn-primary">Search</button>
-        </div>
+        <div class="display-flex">
+            <div class="col-3">
+                <div class="m-2">
+                    <h2>Search for a City</h2>
+                    <input type="text" class="form-input" placeholder="City and/or Zipcode" id="search-input">
+                    <button type="submit" class="btn btn-primary" id="search-submit">Search</button>
+                </div>
 
-        <div class="col-3" id="past-searches">//past searches
-            
-        </div>
+                <div class="m-2" id="past-searches">//past searches
+                    
+                </div>
+            </div>
 
-        <div class="col-9">//current search result
-            
-        </div>
+            <div class="col-9 display-inline">
+                <div class="m-2" id="search-result">//current search result
+                    
+                </div>
 
-        <div class="col-9">//5 day forcast
-            
+                <div class="m-2" id="search-forcast">//5 day forcast
+                    
+                </div>
+            </div>
         </div>
         <script src="./assets/js/script.js"></script>
     </body>
