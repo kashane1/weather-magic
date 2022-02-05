@@ -2,12 +2,12 @@
 var cityZip = "";
 var resultTextEl = document.createElement('p')
 var resultContentEl = document.createElement('p')
+var xycords = [];
 
 //this is the url fetch function
 $("#searchSubmit").click(function() {
     cityZip = $("input").val();
-    var xycords = [];
-    xycords = getCityCoords(cityZip.toLowerCase);
+    xycords = getCityCoords(cityZip);
     console.log(xycords);
 
     //xycords = [41.8781, -87.6298];
@@ -32,21 +32,6 @@ $("#searchSubmit").click(function() {
     
     .catch(console.err);
 });
-
-//this function get the cords for each city
-function getCityCoords(input) {
-    //start testing for all lat and lon major cities
-    console.log(input);
-    if (input = "chicago"){
-        return [41.8781, -87.6298];
-    }
-    else if(input = "los angeles"){
-        return xycords = [34.0522, -118.2437];
-    }
-    else {
-        return xycords = "Sorry, this city is in the database."
-    }
-}
 
 //trying this for dealing with the response
 function searchResult(response) {
@@ -131,6 +116,54 @@ function searchForecast(response) {
     );
 };
 
+//this function get the cords for each city
+function getCityCoords(input) {
+    //trying a new api to get latlon
+    fetch("https://api.tomtom.com/search/2/structuredGeocode.json?key=3KGaX0rwxv1WUDYPM8eGAyyh01HbGcFC&countryCode=US&limit=1&municipality="+input)
+    .then(function(response) {
+        if (!response.ok) {
+            throw response;
+        }
+  
+        console.log(response);
+        return response;        
+    })
+
+    .then(function(data) {
+        searchLatLon(data);
+        return xycords;
+    })
+    
+    /*
+    //start testing for all lat and lon major cities
+    console.log(input);
+    if (input = "chicago"){
+        return [41.8781, -87.6298];
+    }
+    else if(input = "los angeles"){
+        return xycords = [34.0522, -118.2437];
+    }
+    else {
+        return xycords = "Sorry, this city is in the database."
+    }
+    */
+    return xycords;
+};
+
+function searchLatLon(response) {
+    var test = response.summary.map(geoBias, index) => {
+        
+        test[0] = geoBias.lat;
+        test[1] = geoBias.lon;
+    };
+    console.log(test);
+    /*
+    xycords[0] = response.summary.geoBase.lat;
+    xycords[1] = response.summary.geoBase.lon;
+    return xycords;
+    */
+}
+
 
 /*
 $("#pastSearches").
@@ -156,8 +189,10 @@ https://api.openweathermap.org/data/2.5/onecall?city=chicago&appid=397ffb6806087
 /*
 now the api for lat and long geocoding
 
-http://api.positionstack.com/v1/forward?access_key=e68e0f710f4b23f1a060f2539a58014b&query="+cityZip+""
+"https://api.tomtom.com/search/2/structuredGeocode.json?key=3KGaX0rwxv1WUDYPM8eGAyyh01HbGcFC&countryCode=US&limit=1&municipality="+cityZip
 
-e68e0f710f4b23f1a060f2539a58014b
+ill need to use results.position for latlon
+
+3KGaX0rwxv1WUDYPM8eGAyyh01HbGcFC
 
 */
