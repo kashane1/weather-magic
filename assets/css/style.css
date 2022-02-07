@@ -2,10 +2,15 @@
     border-top: 1px solid black;
 }
 
-#searchResult {
-    border: 1px solid rgb(255, 0, 0);
+#searchResult #todayResult {
+    border: 2px solid rgb(255, 0, 0);
 }
 
 #searchForcast {
+    border: 1px solid black;
+}
+
+.pastbtn {
+    line-height: 1.5em;
     border: 1px solid black;
 }
