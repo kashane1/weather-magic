@@ -11,33 +11,32 @@
 
     <body>
         <div class="container-fluid">
-            <h1 class="px-1 text-center bg-link text-white">Weather Dashboard</h1>
+            <h1 class="p-3 text-center bg-link text-white" id="titleH1">Weather Dashboard</h1>
         </div>
 
-        <div class="display-flex">
-            <div class="col-2">
-                <div class="m-1">
+        <div class="row container display-flex">
+            <div class="col-3">
+                <div class="m-2 p-2">
                     <h2>Search for a City</h2>
                     <input type="text" class="p-2 m-2 form-control" placeholder="City and/or Zipcode" id="searchInput">
                     <button type="submit" class="btn btn-primary" id="searchSubmit">Search</button>
                 </div>
 
-                <div class="m-1" >
-                    <h3>Past Search</h3>
+                <div class="m-2 p-3" id="pastEl">
+                    <h3>Past Searches</h3>
                     <ul class="p-1" id="pastSearches"></ul>
                 </div>
             </div>
 
-            <div class="row display-flex">
-                <div class="container  m-1 p-1">
-                    <div class="container" id="searchResult">
+            <div class="col-9">
+                <div class="row display-flex">
+                    <div class="container p-1" id="searchResult">
                         
                     </div>
                 </div>
-
-                <div class="container p-1">
-                    <div class="container" id="searchForecast">
-
+                <div class="row display-flex">
+                    <div class="container p-1" id="searchForecast">
+                        
                     </div>
                 </div>
             </div>

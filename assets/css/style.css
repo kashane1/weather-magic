@@ -1,9 +1,9 @@
-#pastSearches {
-    border-top: 1px solid black;
+#titleH1 {
+    font-size: 3.5rem;
 }
 
-#searchResult #todayResult {
-    border: 2px solid rgb(255, 0, 0);
+#pastEl {
+    border-top: 2px solid black;
 }
 
 #searchForcast {
